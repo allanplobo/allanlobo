@@ -2,14 +2,29 @@ on:
   push:
     branches:
       - main
-name: 🚀 Deploy website on push
+
+name: 🚀 Deploy Angular app
 jobs:
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
+
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v2
+
+      - name: 🚚 Use Node.js 16.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - name: 🚚 Install Dependencies
+        run: |
+          npm install
+
+      - name: 📦 Build
+        run: |
+          npm run build --target=production
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.2
@@ -18,4 +33,4 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           port: ${{ secrets.ftp_port }}
-          server-dir: public_html
+          local-dir: dist/allanlobo/

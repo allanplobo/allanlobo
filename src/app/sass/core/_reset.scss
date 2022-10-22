@@ -1,5 +1,7 @@
+@import "../abstracts/variables";
+
 html {
-  background-color: #0c0c0c;
+  background-color: $black;
 }
 
 body {
@@ -8,5 +10,4 @@ body {
 
 ul {
   list-style: none;
-  color: #ffffff;
 }

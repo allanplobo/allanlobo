@@ -8,19 +8,19 @@ import { TopbarComponent } from "./components/topbar/topbar.component";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { AboutComponent } from './pages/about/about.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 
 @NgModule({
-  declarations: [AppComponent, LandingPageComponent, TopbarComponent],
+  declarations: [AppComponent, LandingPageComponent, TopbarComponent, AboutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     TranslateModule.forRoot({
-      defaultLanguage: "pt-br",
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,

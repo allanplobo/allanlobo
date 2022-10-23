@@ -1,10 +1,18 @@
 <header>
   <div class="wrapper">
-    <img src="../../../assets/images/logoAllan.png" alt="Logo Allan Lobo" />
+    <h1 [title]="'TOPBAR.Allan' | translate">allan lobo</h1>
     <nav>
       <ul>
-        <li>{{ "HOME" | translate }}</li>
-        <li>Blog</li>
+        <li [routerLink]="['/home']" routerLinkActive="current-route">
+          {{ "TOPBAR.Home" | translate }}
+        </li>
+        <li [routerLink]="['/about']" routerLinkActive="current-route">
+          {{ "TOPBAR.About" | translate }}
+        </li>
+        <li [routerLink]="['/contact']" routerLinkActive="current-route">
+          {{ "TOPBAR.Contact" | translate }}
+        </li>
+        <li [routerLink]="['/blog']" routerLinkActive="current-route">blog</li>
       </ul>
     </nav>
   </div>
